@@ -200,3 +200,9 @@ SELECT * FROM Article
 WHERE 1=1
 ORDER BY CreatedByUser ASC;
 
+CREATE VIEW UsersWithoutArticlesIdFirstAndLastName AS
+    SELECT Id, FirstName, LastName FROM Users
+WHERE Id NOT IN (SELECT CreatedByUser FROM Article);
+
+SELECT * FROM UsersWithoutArticlesIdFirstAndLastName;
+
